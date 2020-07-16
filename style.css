@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body, html {
   height:100%;
 }
@@ -23,10 +27,36 @@ header > #bio-image {
 main {
   padding: 0;
   margin: 2%;
+  display: flex;
+  flex-direction: row;
 }
 
-main > #bio-resume {
+main > article {
+  width: 100%;
+}
+
+main > article > #bio-resume {
   margin-bottom: 1%;
+}
+
+main > article > #portfolio > h2 > a {
+  text-decoration: none;
+  color: #000;
+}
+
+main > article > #portfolio > h2 > a:hover {
+  color: #c0c0c0;
+}
+
+main > section > #menu {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+}
+
+main > section > #menu > #nav > li > a {
+  text-decoration: none;
 }
 
 footer {

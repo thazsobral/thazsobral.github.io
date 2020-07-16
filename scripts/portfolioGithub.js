@@ -15,7 +15,7 @@ function setPortifolio (repos) {
   repos.forEach((repo) => {
     // elementos que começam com - não devem ser exibidos
 
-    if(repo.name[0] !== '-') {
+    if(repo.name !== 'ThazSobral.github.io' & repo.name[0] !== '-') {
       id ++
       var nameProject = document.createTextNode((id) + ' - ' + repo.name)
       var linkProject = document.createElement('a')
