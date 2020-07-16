@@ -11,11 +11,13 @@ fetch('https://api.github.com/users/thazsobral/repos')
 
 function setPortifolio (repos) {
   const writeSpace = getWriteSpace('portfolio')
-  repos.forEach((repo, id) => {
-    // elementos que começam com # não devem ser exibidos
+  var id = 0
+  repos.forEach((repo) => {
+    // elementos que começam com - não devem ser exibidos
 
-    if(repo.name !== '#') {
-      var nameProject = document.createTextNode((id + 1 )+ ' - ' + repo.name)
+    if(repo.name[0] !== '-') {
+      id ++
+      var nameProject = document.createTextNode((id) + ' - ' + repo.name)
       var linkProject = document.createElement('a')
       var repoTopic = document.createElement('h2')
 
