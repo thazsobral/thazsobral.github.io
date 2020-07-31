@@ -9,6 +9,9 @@
 </head>
 <body>
 	<header>
+		<div id="header-image">
+			<img src="./assets/images/study-development.svg" alt="study-developement">
+		</div>
 		<div id="perfil">
 			<h1 id="name">
 				Thalles Sobral
@@ -17,13 +20,17 @@
 				Entusiasta e fascinado pela diversidade tecnológica.
 			</span>
 		</div>
-		<div id="header-image">
-			<img src="./assets/images/study-development.svg" alt="study-developement">
+		<div id="top-menu">
+			<ul id="nav">
+				<li><a href="#bio-resume">Bio</a></li>
+				<li><a href="#portfolio">Portfólio</a></li>
+			</ul>
 		</div>
+		<script src="./scripts/fixedHeaderTop.js"></script>
 	</header>
 	<main>
 		<article>
-			<div id="bio-resume">
+			<div id="bio-resume" class="negative">
 				<h1>Bio</h1>
 				<span>
 					Sou apaixonado por tecnologia, dados e internet. Sempre estou em busca de novos desafios e experiências para me manter motivado.
@@ -35,18 +42,17 @@
 			</div>
 		</article>
 		<section>
-			<div id="menu">
+			<div id="lateral-menu">
 				<ul id="nav">
 					<li><a href="#bio-resume">Bio</a></li>
 					<li><a href="#portfolio">Portfólio</a></li>
 				</ul>
-				<script src="./scripts/linkMenu.js"></script>
 			</div>
 		</section>
 	</main>
 	<footer>
 		<div class="col-xs-12 text-align-center">
-			<div class="github-card" data-github="thazsobral" data-width="400" data-height="150" data-theme="default"></div>
+			<div class="github-card" data-github="thazsobral" data-width="340" data-height="150" data-theme="default"></div>
 			<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 		</div>
 	</footer>
