@@ -40,7 +40,7 @@ header > #header-image {
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
 }
 
@@ -48,7 +48,7 @@ header > #top-menu {
   padding: 3%;
   background-color: #f2f2f2;
   width: 100%;
-  visibility: hidden;
+  display: none;
 }
 
 header > #top-menu > ul {
@@ -154,7 +154,7 @@ footer {
   }
 
   header > #top-menu {
-    visibility: visible;
+    display: inline; 
   }
 
   main > section > #lateral-menu {
