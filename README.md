@@ -4,4 +4,4 @@
 
 # thazsobral.github.io
 
-My front page com HTML, CSS e Js puro. 🤟 
+My page with HTML, CSS and Javascript. 🤟 
