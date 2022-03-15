@@ -11,5 +11,5 @@ fetch("https://api.github.com/users/thazsobral")
     })
 
 function setBio(data) {
-    const bio = document.getElementById(id).innerText(data)
+    const bio = document.getElementById("bio-text").innerText(data)
 }
