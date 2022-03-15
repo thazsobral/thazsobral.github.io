@@ -81,12 +81,12 @@ main > article > #bio-resume {
   margin-bottom: 1%;
 }
 
-main > article > #portfolio > h2 > a {
+main > article > #portfolio-github > h2 > a {
   text-decoration: none;
   color: #1c1c1c;
 }
 
-main > article > #portfolio > h2 > a:hover {
+main > article > #portfolio-github > h2 > a:hover {
   color: #c0c0c0;
   transition-duration: .3s;
 }
