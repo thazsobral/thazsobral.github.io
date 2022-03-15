@@ -10,7 +10,7 @@ fetch('https://api.github.com/users/thazsobral/repos')
   })
 
 function setPortifolio (repos) {
-  const writeSpace = getWriteSpace('portfolio')
+  const writeSpace = getWriteSpace('portfolio-github')
   var id = 0
   repos.forEach((repo) => {
     // elementos que começam com - não devem ser exibidos
