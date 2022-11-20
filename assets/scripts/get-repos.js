@@ -25,9 +25,10 @@ function setPortifolio(repos) {
       let repoTopic = document.createElement("h2");
       let nameProject = document.createTextNode((id) + " - " + repo.name);
 
+      // cria link
       let linkProject = document.createElement("a");
       linkProject.setAttribute("href", repo.html_url);
-
+      
       linkProject.appendChild(nameProject);
       repoTopic.appendChild(linkProject);
       card.appendChild(repoTopic);

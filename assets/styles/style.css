@@ -91,8 +91,8 @@ main > article > #posts-github > ul > .card > h2 > a {
   color: var(--secundary);
 }
 
-main > article > #portfolio-github > .card > h2 > a:hover,
-main > article > #posts-github > h2 > a:hover {
+main > article > #portfolio-github > ul > .card > h2 > a:hover,
+main > article > #posts-github > ul > .card > h2 > a:hover {
   color: var(--background-secundary);
   transition-duration: .3s;
 }
