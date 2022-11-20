@@ -81,7 +81,7 @@ main > article > #bio-resume {
   margin-bottom: 1%;
 }
 
-main > article > #posts-github > h2 {
+main > article > #posts-github > ul > .card > h2 {
   font-size: larger;
 }
 
