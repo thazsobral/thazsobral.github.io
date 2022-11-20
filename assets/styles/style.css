@@ -1,21 +1,12 @@
-html {
-  scroll-behavior: smooth;
-}
-
-body, html {
-  height:100%;
-}
-
-body {
-  padding: 1%;
-  background-color: #f2f2f2;
-}
+@import url(./index.css);
+@import url(./variables.css);
 
 main h1 {
   font-size: 2rem;
 }
 
 header {
+  width: 100vw;
   display: flex;
   flex-direction: row;
   margin-bottom: 1%;
@@ -28,7 +19,7 @@ header > #perfil {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #1c1c1c;
+  color: var(--primary);
   font-size: 18px;
 }
 
@@ -49,9 +40,10 @@ header > #header-image {
 }
 
 header > #top-menu {
-  padding: 3%;
-  background-color: #f2f2f2;
-  width: 100%;
+  margin: 0;
+  padding: 3% 0;
+  background-color: var(--background-primary);
+  width: 100vw;
   display: none;
 }
 
@@ -67,7 +59,7 @@ header > #top-menu > ul > li {
 
 header > #top-menu > ul > li > a {
   text-decoration: none;
-  color: #1c1c1c;
+  color: var(--primary);
 }
 
 main {
@@ -85,15 +77,19 @@ main > article > #bio-resume {
   margin-bottom: 1%;
 }
 
+main > article > #posts-github > h2 {
+  font-size: larger;
+}
+
 main > article > #portfolio-github > .card > h2 > a,
 main > article > #posts-github > h2 > a {
   text-decoration: none;
-  color: #0c0c0c;
+  color: var(--secundary);
 }
 
 main > article > #portfolio-github > .card > h2 > a:hover,
 main > article > #posts-github > h2 > a:hover {
-  color: #c0c0c0;
+  color: var(--background-secundary);
   transition-duration: .3s;
 }
 
@@ -111,7 +107,7 @@ main > section > #lateral-menu > #nav > li {
 
 main > section > #lateral-menu > #nav > li > a {
   text-decoration: none;
-  color: #1c1c1c;
+  color: var(--primary);
 }
 
 footer {
@@ -131,18 +127,18 @@ footer #reserved-rights p {
 }
 
 .negative {
-  background-color: #1c1c1c;
+  background-color: var(--primary);
   padding: 1%;
   border-radius: 10px;
-  color: #d6d6d6;
+  color: var(--background-primary);
   font-size: 16;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif
 }
 
 main > article > #portfolio-github > .card > p,
 main > article > #posts-github > p {
-  color: #0c0c0c;
-  background-color: #d8d8d8;
+  color: var(--secundary);
+  background-color: var(--background-secundary);
 }
 
 .stick {
