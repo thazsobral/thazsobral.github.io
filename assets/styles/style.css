@@ -11,6 +11,10 @@ body {
   background-color: #f2f2f2;
 }
 
+main h1 {
+  font-size: 2rem;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -81,12 +85,14 @@ main > article > #bio-resume {
   margin-bottom: 1%;
 }
 
-main > article > #portfolio-github > h2 > a {
+main > article > #portfolio-github > h2 > a,
+main > article > #posts-github > h2 > a {
   text-decoration: none;
   color: #1c1c1c;
 }
 
-main > article > #portfolio-github > h2 > a:hover {
+main > article > #portfolio-github > h2 > a:hover,
+main > article > #posts-github > h2 > a:hover {
   color: #c0c0c0;
   transition-duration: .3s;
 }
@@ -111,9 +117,17 @@ main > section > #lateral-menu > #nav > li > a {
 footer {
   width:100%;
   display: flex;
-  flex-direction: row;
+  padding-bottom: 2vh;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+footer #reserved-rights p {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
 }
 
 .negative {

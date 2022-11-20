@@ -11,15 +11,14 @@ fetch("https://api.github.com/users/thazsobral/repos")
 
 function setPortifolio(repos) {
   const writeSpace = getWriteSpace("portfolio-github");
-  var id = 0;
+  let id = 0;
   repos.forEach((repo) => {
     // elementos que começam com - não devem ser exibidos
-
     if(repo.name !== "thazsobral.github.io" & repo.name[0] !== "-") {
       id ++;
-      var nameProject = document.createTextNode((id) + " - " + repo.name);
-      var linkProject = document.createElement("a");
-      var repoTopic = document.createElement("h2");
+      let nameProject = document.createTextNode((id) + " - " + repo.name);
+      let linkProject = document.createElement("a");
+      let repoTopic = document.createElement("h2");
 
       linkProject.setAttribute("href", repo.html_url);
       
