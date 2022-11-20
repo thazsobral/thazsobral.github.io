@@ -16,15 +16,30 @@ function setPortifolio(repos) {
     // elementos que começam com - não devem ser exibidos
     if(repo.name !== "thazsobral.github.io" & repo.name[0] !== "-") {
       id ++;
-      let nameProject = document.createTextNode((id) + " - " + repo.name);
-      let linkProject = document.createElement("a");
-      let repoTopic = document.createElement("h2");
 
+      // cria o card para o projeto
+      let card = document.createElement("div");
+      card.setAttribute("class", "card");
+
+      //cria o tópico
+      let repoTopic = document.createElement("h2");
+      let nameProject = document.createTextNode((id) + " - " + repo.name);
+
+      let linkProject = document.createElement("a");
       linkProject.setAttribute("href", repo.html_url);
-      
+
       linkProject.appendChild(nameProject);
       repoTopic.appendChild(linkProject);
-      writeSpace.appendChild(repoTopic);
+      card.appendChild(repoTopic);
+
+      if(repo.description !== null) {
+        let description = document.createElement("p");
+        description.className = "negative";
+        description.innerText = repo.description;
+        card.appendChild(description);
+      }
+
+      writeSpace.appendChild(card);
     }
   })
 }
