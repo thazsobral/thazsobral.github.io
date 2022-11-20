@@ -10,7 +10,7 @@ fetch("https://api.github.com/users/thazsobral/repos")
   });
 
 function setPortifolio(repos) {
-  const writeSpace = getWriteSpace("portfolio-github");
+  const writeSpace = getWriteSpace("projects-list");
   let id = 0;
   repos.forEach((repo) => {
     // elementos que começam com - não devem ser exibidos
@@ -18,7 +18,7 @@ function setPortifolio(repos) {
       id ++;
 
       // cria o card para o projeto
-      let card = document.createElement("div");
+      let card = document.createElement("li");
       card.setAttribute("class", "card");
 
       //cria o tópico

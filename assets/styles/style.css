@@ -73,6 +73,10 @@ main > article {
   width: 100%;
 }
 
+ul {
+  list-style: none;
+}
+
 main > article > #bio-resume {
   margin-bottom: 1%;
 }
@@ -81,8 +85,8 @@ main > article > #posts-github > h2 {
   font-size: larger;
 }
 
-main > article > #portfolio-github > .card > h2 > a,
-main > article > #posts-github > h2 > a {
+main > article > #portfolio-github > ul > .card > h2 > a,
+main > article > #posts-github > ul > .card > h2 > a {
   text-decoration: none;
   color: var(--secundary);
 }
