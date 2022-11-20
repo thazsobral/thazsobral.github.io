@@ -85,13 +85,13 @@ main > article > #bio-resume {
   margin-bottom: 1%;
 }
 
-main > article > #portfolio-github > h2 > a,
+main > article > #portfolio-github > .card > h2 > a,
 main > article > #posts-github > h2 > a {
   text-decoration: none;
-  color: #1c1c1c;
+  color: #0c0c0c;
 }
 
-main > article > #portfolio-github > h2 > a:hover,
+main > article > #portfolio-github > .card > h2 > a:hover,
 main > article > #posts-github > h2 > a:hover {
   color: #c0c0c0;
   transition-duration: .3s;
@@ -137,6 +137,12 @@ footer #reserved-rights p {
   color: #d6d6d6;
   font-size: 16;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif
+}
+
+main > article > #portfolio-github > .card > p,
+main > article > #posts-github > p {
+  color: #0c0c0c;
+  background-color: #d8d8d8;
 }
 
 .stick {
