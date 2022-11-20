@@ -82,7 +82,7 @@ main > article > #bio-resume {
 }
 
 main > article > #posts-github > ul > .card > h2 {
-  font-size: larger;
+  font-size: medium;
 }
 
 main > article > #portfolio-github > ul > .card > h2 > a,
