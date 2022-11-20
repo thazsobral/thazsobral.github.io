@@ -2,5 +2,5 @@
   <img src="/assets/images/study-development.svg">
 </p>
 <p align="center">
-  #thazsobral.github.io 🤟
+  <a href="https://thazsobral.github.io/">#thazsobral.github.io 🤟</a>
 </p>
