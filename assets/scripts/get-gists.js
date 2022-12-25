@@ -18,10 +18,9 @@ function setPosts(posts) {
         // cria o card para o projeto
         let card = document.createElement("li");
         card.setAttribute("class", "card");
-
         // cria um titulo para o post
-        let updatedDate = convertDate(post.updated_at);
-        let postTitle = document.createTextNode(`${id} - ${post.description} - (${updatedDate})`);
+        let createdDate = convertDate(post.created_at);
+        let postTitle = document.createTextNode(`${id} - ${post.description} - (${createdDate})`);
         let postTopic = document.createElement("h2");
         // cria link para post
         let postLink = document.createElement("a");
