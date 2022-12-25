@@ -3,16 +3,16 @@ fetch("https://api.github.com/users/thazsobral/gists")
         return response.json();
     })
     .then(function(data) {
-        setPosts(data);
+        setTips(data);
     })
     .catch(function(error) {
         console.error(`Error: ${error}`);
     });
 
-function setPosts(posts) {
-    const writeSpace = getWriteSpace("posts-list");
+function setTips(tips) {
+    const writeSpace = getWriteSpace("tips-list");
     let id = 0;
-    posts.forEach(post => {
+    tips.forEach(post => {
         id ++;
 
         // cria o card para o projeto

@@ -81,18 +81,18 @@ main > article > #bio-resume {
   margin-bottom: 1%;
 }
 
-main > article > #posts-github > ul > .card > h2 {
+main > article > #tips-github > ul > .card > h2 {
   font-size: medium;
 }
 
 main > article > #portfolio-github > ul > .card > h2 > a,
-main > article > #posts-github > ul > .card > h2 > a {
+main > article > #tips-github > ul > .card > h2 > a {
   text-decoration: none;
   color: var(--secundary);
 }
 
 main > article > #portfolio-github > ul > .card > h2 > a:hover,
-main > article > #posts-github > ul > .card > h2 > a:hover {
+main > article > #tips-github > ul > .card > h2 > a:hover {
   color: var(--background-secundary);
   transition-duration: .3s;
 }
@@ -140,7 +140,7 @@ footer #reserved-rights p {
 }
 
 main > article > #portfolio-github > .card > p,
-main > article > #posts-github > p {
+main > article > #tips-github > p {
   color: var(--secundary);
   background-color: var(--background-secundary);
 }
