@@ -1,4 +1,4 @@
-fetch("https://raw.githubusercontent.com/thazsobral/thazsobral/main/README.md")
+fetch("https://raw.githubusercontent.com/thazsobral/thazsobral/refs/heads/main/README-PT.md")
     .then(function (response) {
         return response.text();
     })
