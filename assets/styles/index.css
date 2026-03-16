@@ -1,14 +1,54 @@
-@import url(./variables.css);
+/* Importação obrigatória das variáveis de design */
+@import url("./variables.css");
 
-html {
-    scroll-behavior: smooth;
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
+html {
+    scroll-behavior: smooth; /* Garante o deslize suave ao clicar nos links do menu */
 }
 
 body {
-    padding: 1%;
-    background-color: var(--background-primary);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-primary); /* Usa o cinza claro definido nas variáveis */
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scrolls laterais indesejados, especialmente no mobile */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilização padrão para imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Estilização de links globais */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    filter: brightness(1.2);
+}
+
+/* Utilitário para esconder elementos visualmente (Acessibilidade) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
