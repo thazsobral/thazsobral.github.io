@@ -1,6 +1,26 @@
 :root {
-    --primary: #1c1c1c;
-    --secundary: #0c0c0c;
-    --background-primary: #f2f2f2;
-    --background-secundary: #c0c0c0;
+    /* --- Cores de Marca (Crypto/Developer Theme) --- */
+    /* Verde esmeralda para botões, links e status de "Online" */
+    --accent: #10b981; 
+    --accent-hover: #059669;
+
+    /* --- Cores de Fundo (Backgrounds) --- */
+    --bg-primary: #f8fafc;    /* Fundo geral da página (Claro) */
+    --bg-secondary: #ffffff;  /* Fundo dos cards e header */
+    --bg-tertiary: #e2e8f0;   /* Bordas e divisores */
+    --bg-dark: #1c1c1c;       /* Fundo da Bio (Modo Negativo) */
+
+    /* --- Cores de Texto --- */
+    --text-main: #0f172a;     /* Títulos e textos principais */
+    --text-muted: #64748b;    /* Descrições e textos secundários */
+    --text-on-dark: #f1f5f9;  /* Texto dentro da Bio escura */
+
+    /* --- Tokens de Espaçamento e Bordas --- */
+    --radius-md: 8px;         /* Arredondamento dos cards e botões */
+    --radius-lg: 16px;        /* Arredondamento da Bio */
+    --gap-section: 2rem;      /* Espaço entre seções do site */
+
+    /* --- Sombras (Elevation) --- */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
