@@ -1,83 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="./assets/styles/style.css">
-	<link rel="shortcut icon" href="./assets/images/favicon/glasses-16.png" type="image/x-icon">
-	<title>Thalles Sobral</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Portfólio de Thalles Sobral - Desenvolvedor Fullstack.">
+    
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="shortcut icon" href="./assets/images/favicon/glasses-16.png" type="image/x-icon">
+    
+    <title>Thalles Sobral | Desenvolvedor</title>
 </head>
 <body>
-	<header>
-		<div id="header-image">
-			<img src="./assets/images/study-development.svg" alt="study-developement">
-		</div>
-		<div id="perfil">
-			<h1 id="name">
-				Thalles Sobral
-			</h1>
-			<span id="status-text">
-			</span>
-			<script src="./assets/scripts/get-status.js"></script>
-		</div>
-		<nav id="top-menu">
-			<ul id="nav">
-				<li><a href="#bio-resume">Bio</a></li>
-				<li><a href="#tips-github">Últimas dicas</a></li>
-				<li><a href="#portfolio-github">Portfólio</a></li>
-				<li><a href="#contact">Github</a></li>
-			</ul>
-		</nav>
-		<script src="./assets/scripts/fixed-header-top.js"></script>
-	</header>
-	<main>
-		<article>
-			<div id="bio-resume" class="negative">
-				<h1>Bio</h1>
-				<script src="./assets/scripts/get-bio.js"></script>
-			</div>
-			<hr>
-			<div id="tips-github">
-				<h1>Últimas dicas</h1>
-				<ul id="tips-list">
-					<script src="./assets/scripts/get-gists.js"></script>
-				</ul>
-			</div>
-			<hr>
-			<div id="portfolio-github">
-				<h1>Portfólio</h1>
-				<ul id="projects-list">
-					<script src="./assets/scripts/get-repos.js"></script>
-				</ul>
-			</div>
-			<hr>
-		</article>
-		<section>
-			<div id="lateral-menu">
-				<ul id="nav">
-					<li><a href="#bio-resume">Bio</a></li>
-					<li><a href="#tips-github">Últimas dicas</a></li>
-					<li><a href="#portfolio-github">Portfólio</a></li>
-					<li><a href="#contact">Github</a></li>
-				</ul>
-			</div>
-		</section>
-	</main>
-	<footer id="contact">
-		<div class="col-xs-12 text-align-center">
-			<div class="github-card" data-github="thazsobral" data-width="340" data-height="150" data-theme="default"></div>
-			<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-		</div>
-		<div class="col-xs-12 text-align-center">
-			<iframe src="https://github.com/sponsors/thazsobral/button" title="Sponsor thazsobral" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
-		</div>
-		<div id="reserved-rights">
-			<p>
-				© 2026 Made with 🤍 by ThazSobral.<br>
-				Todos os direitos reservados.
-			</p>
-		</div>
-	</footer>
+    <header>
+        <div id="header-image">
+            <img src="./assets/images/study-development.svg" alt="Ilustração de estudo e desenvolvimento">
+        </div>
+        
+        <div id="perfil">
+            <h1 id="name">Thalles Sobral</h1>
+            <span id="status-text" aria-live="polite"></span>
+            <script src="./assets/scripts/get-status.js"></script>
+        </div>
+
+        <button id="menu-toggle" aria-label="Abrir menu" onclick="document.body.classList.toggle('menu-open')">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav id="nav-container">
+            <ul id="nav-list">
+                <li><a href="#bio-resume" onclick="document.body.classList.remove('menu-open')">Bio</a></li>
+                <li><a href="#tips-github" onclick="document.body.classList.remove('menu-open')">Dicas</a></li>
+                <li><a href="#portfolio-github" onclick="document.body.classList.remove('menu-open')">Portfólio</a></li>
+                <li><a href="#contact" onclick="document.body.classList.remove('menu-open')">Github</a></li>
+            </ul>
+        </nav>
+
+        <script src="./assets/scripts/fixed-header-top.js"></script>
+    </header>
+
+    <main>
+        <article>
+            <section id="bio-resume" class="negative">
+                <h2>Bio</h2>
+                <script src="./assets/scripts/get-bio.js"></script>
+            </section>
+
+            <hr>
+
+            <section id="tips-github">
+                <h2>Últimas dicas</h2>
+                <ul id="tips-list">
+                    <script src="./assets/scripts/get-gists.js"></script>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section id="portfolio-github">
+                <h2>Portfólio</h2>
+                <ul id="projects-list">
+                    <script src="./assets/scripts/get-repos.js"></script>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="github-card-container">
+                <div class="github-card" data-github="thazsobral" data-width="340" data-height="150" data-theme="default"></div>
+                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+            </div>
+
+            <div class="sponsor-container">
+                <iframe src="https://github.com/sponsors/thazsobral/button" title="Sponsor thazsobral" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+            </div>
+
+            <div id="reserved-rights">
+                <p>
+                    © 2026 Made with 🤍 by ThazSobral.<br>
+                    Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
