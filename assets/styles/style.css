@@ -1,187 +1,237 @@
-@import url(./index.css);
-@import url(./variables.css);
+/* 1. IMPORTAÇÕES */
+@import url("./index.css");
+@import url("./variables.css");
 
-main h1 {
-  font-size: 2rem;
+/* 2. TIPOGRAFIA E BASE */
+h1, h2 {
+    color: var(--text-main);
+    margin-bottom: 1rem;
 }
 
-header {
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 1%;
-}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
 
-header > #perfil {
-  width: 100%;
-  min-width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  font-size: 18px;
-}
-
-header > #perfil > #name {
-  text-align: center;
-}
-
-header > #perfil > #status {
-  text-align: center;
-}
-
-header > #header-image {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-header > #top-menu {
-  margin: 0;
-  padding: 3% 0;
-  background-color: var(--background-primary);
-  width: 100vw;
-  display: none;
-}
-
-header > #top-menu > ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-header > #top-menu > ul > li {
-  list-style: none;
-}
-
-header > #top-menu > ul > li > a {
-  text-decoration: none;
-  color: var(--primary);
-}
-
-main {
-  padding: 0;
-  margin: 2%;
-  display: flex;
-  flex-direction: row;
-}
-
-main > article {
-  width: 100%;
-}
-
+/* Remove bullets de todas as listas globalmente */
 ul {
-  list-style: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-main > article > #bio-resume {
-  margin-bottom: 1%;
+/* 3. HEADER FIXO (Desktop) */
+header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--bg-tertiary);
+    
+    /* Fixa o menu no topo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-main > article > #tips-github > ul > .card > h2 {
-  font-size: medium;
+#header-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2rem;
 }
 
-main > article > #portfolio-github > ul > .card > h2 > a,
-main > article > #tips-github > ul > .card > h2 > a {
-  text-decoration: none;
-  color: var(--secundary);
+#header-image img {
+    max-width: 120px;
 }
 
-main > article > #portfolio-github > ul > .card > h2 > a:hover,
-main > article > #tips-github > ul > .card > h2 > a:hover {
-  color: var(--background-secundary);
-  transition-duration: .3s;
-}
-
-main > section > #lateral-menu {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  padding: 5px;
-  font-size: 18px;
-}
-
-main > section > #lateral-menu > #nav > li {
-  list-style: none;
-}
-
-main > section > #lateral-menu > #nav > li > a {
-  text-decoration: none;
-  color: var(--primary);
-}
-
-footer {
-  width:100%;
-  display: flex;
-  padding-bottom: 2vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-footer #reserved-rights p {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-}
-
-.negative {
-  background-color: var(--primary);
-  padding: 1%;
-  border-radius: 10px;
-  color: var(--background-primary);
-  font-size: 16;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif
-}
-
-main > article > #portfolio-github > .card > p,
-main > article > #tips-github > p {
-  color: var(--secundary);
-  background-color: var(--background-secundary);
-}
-
-.stick {
-  position: fixed;
-  top: 0;
-}
-
-.stick + #top-menu {
-  padding-top: 1%;
-}
-
-@media only screen and (max-width: 600px) {  
-  body {
-    padding: .5%;
-  }
-  
-  header {
+#perfil {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    margin-bottom: 1%;
-  }
-  
-  header > #perfil {
-    font-size: 20px;
-  }
-  
-  main {
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#name {
+    font-size: 2rem;
+    margin: 0;
+}
+
+#status-text {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* 4. BOTÃO HAMBÚRGUER (Com fundo branco para contraste) */
+#menu-toggle {
+    display: none; /* Escondido no Desktop */
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff; /* Fundo branco para visibilidade sobre a bio */
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#menu-toggle .hamburger {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #000000; /* Linhas pretas para contrastar com o botão branco */
+    position: relative;
+    transition: background 0.2s;
+}
+
+#menu-toggle .hamburger::before,
+#menu-toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #000000;
+    transition: transform 0.3s, top 0.3s;
+}
+
+#menu-toggle .hamburger::before { top: -7px; }
+#menu-toggle .hamburger::after { top: 7px; }
+
+/* Animação para "X" quando aberto */
+.menu-open #menu-toggle .hamburger { background: transparent; }
+.menu-open #menu-toggle .hamburger::before { top: 0; transform: rotate(45deg); }
+.menu-open #menu-toggle .hamburger::after { top: 0; transform: rotate(-45deg); }
+
+/* 5. NAVEGAÇÃO */
+#nav-container {
+    flex: 1;
+}
+
+#nav-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+#nav-list a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+#nav-list a:hover { color: var(--accent); }
+
+/* 6. LAYOUT PRINCIPAL (Centralizado e Fluido) */
+main {
+    display: flex;
     flex-direction: column;
-  }
+    align-items: center;
+    gap: var(--gap-section);
+    max-width: 1200px;
+    margin: 140px auto 2rem; /* Margin-top compensa o header fixo */
+    padding: 0 5%;
+}
 
-  header > #top-menu {
-    display: inline; 
-  }
+article { 
+    width: 100%; 
+    max-width: 900px; /* Largura ideal para leitura e centralização */
+}
 
-  main > section > #lateral-menu {
-    display: none;
-  }
+/* 7. COMPONENTES (Cards e Bio) */
+.card {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--bg-tertiary);
+    transition: transform 0.2s;
+}
 
-  .negative {
-    padding: 5%;
-  }
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.card h2 a {
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+/* Bio sem sobra/sombra indesejada */
+.negative {
+    background-color: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    line-height: 1.7;
+    box-shadow: none; 
+    margin-bottom: 2rem;
+}
+
+.negative h2 { color: var(--accent); }
+
+/* 8. FOOTER */
+footer {
+    padding: 3rem 5%;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--bg-tertiary);
+    margin-top: auto;
+}
+
+/* 9. MEDIA QUERIES (Mobile) */
+@media (max-width: 768px) {
+    header {
+        position: relative; /* Menu não precisa ser fixo no mobile para poupar espaço */
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    main { 
+        margin-top: 2rem; 
+    }
+
+    #header-image { display: none; }
+    #perfil { align-items: center; }
+
+    #menu-toggle { display: flex; } /* Ativa o botão hambúrguer */
+
+    /* Painel Lateral do Menu Mobile */
+    #nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: var(--bg-secondary);
+        z-index: 1500;
+        transition: 0.4s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    }
+
+    .menu-open #nav-container { right: 0; }
+
+    #nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    #nav-list a { font-size: 1.5rem; }
 }
