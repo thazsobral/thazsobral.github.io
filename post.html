@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <title>Thalles Sobral | Post</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div id="perfil">
+            <h1 id="name"><a href="index.html" style="color: inherit; text-decoration: none;">← Voltar</a></h1>
+        </div>
+    </header>
+
+    <main>
+        <article id="gist-content" class="card" style="margin-top: 40px; line-height: 1.8;">
+            <p>Carregando conteúdo...</p>
+        </article>
+    </main>
+
+    <script>
+        // 1. Pegar o ID do Gist pela URL (ex: post.html?id=123)
+        const urlParams = new URLSearchParams(window.location.search);
+        const gistId = urlParams.get('id');
+
+        if (gistId) {
+            fetch(`https://api.github.com/gists/${gistId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // 2. Pegar o conteúdo do primeiro arquivo do Gist
+                    const files = Object.values(data.files);
+                    const content = files[0].content;
+                    
+                    // 3. Renderizar Markdown para HTML
+                    document.getElementById('gist-content').innerHTML = marked.parse(content);
+                    document.title = files[0].filename + " | Thalles Sobral";
+                })
+                .catch(err => {
+                    document.getElementById('gist-content').innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
+                });
+        }
+    </script>
+</body>
+</html>
