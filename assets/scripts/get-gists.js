@@ -24,7 +24,9 @@ function setTips(tips) {
         let postTopic = document.createElement("h2");
         // cria link para post
         let postLink = document.createElement("a");
-        postLink.setAttribute("href", post.html_url);
+        // postLink.setAttribute("href", post.html_url);
+        // Linkamos para a nossa página local passando o ID do Gist como parâmetro
+        postLink.setAttribute("href", `post.html?id=${post.id}`);
         
         postLink.appendChild(postTitle);
         postTopic.appendChild(postLink);
