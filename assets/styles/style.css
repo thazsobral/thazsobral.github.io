@@ -168,6 +168,12 @@ header {
     font-size: calc(1.3rem + 1vw); 
 }
 
+.post-content h1, .post-content h2, .post-content p {
+    overflow-wrap: break-word; /* Força a quebra de palavras muito longas */
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
 .post-content code {
     font-family: 'Courier New', Courier, monospace;
     background: var(--bg-tertiary);
@@ -181,10 +187,15 @@ header {
     color: var(--bg-dark);
     padding: 1rem;
     border-radius: var(--radius-md);
-    overflow-x: auto; /* Scroll apenas no bloco de código */
-    margin: 1.5rem 0;
-    font-size: 0.85rem;
-    max-width: 100%; /* Importante para não vazar */
+    
+    /* ESSENCIAL: Permite scroll interno em vez de esticar a página */
+    overflow-x: auto; 
+    white-space: pre; /* Mantém a formatação original do código */
+    word-spacing: normal;
+    word-break: normal;
+    
+    max-width: 100%; /* Não deixa o bloco ser maior que o celular */
+    display: block;
 }
 
 .post-content blockquote {
@@ -198,11 +209,11 @@ header {
 
 /* Tabelas responsivas no post */
 .post-content table {
+    display: block;      /* Transforma a tabela em um bloco... */
     width: 100%;
+    overflow-x: auto;    /* ...que permite scroll horizontal interno */
     border-collapse: collapse;
     margin: 1.5rem 0;
-    display: block;
-    overflow-x: auto; /* Permite scroll em tabelas largas no mobile */
 }
 
 .post-content th, .post-content td {
@@ -334,11 +345,12 @@ footer {
     
     #nav-list a { font-size: 1.5rem; }
 
+    /* Força o container a nunca ser maior que a tela do celular */
     .post-content {
-        padding: 1.5rem 1rem; /* Reduz padding lateral no mobile */
-        border-radius: 0;
-        border: none;
-        max-width: 100%;
+        padding: 1.5rem 1rem;
+        max-width: 100vw;
+        overflow-x: hidden; /* Evita o scroll lateral na página toda */
+        box-sizing: border-box;
     }
     
     .post-page main {
@@ -351,8 +363,28 @@ footer {
         font-size: 0.95rem;
     }
 
-    /* Reduz drasticamente o h1 se for muito longo */
-    .post-content h1 {
-        font-size: 1.6rem;
+    /* O SEGREDO: Força a quebra de títulos e textos longos */
+    .post-content h1, 
+    .post-content h2, 
+    .post-content p {
+        overflow-wrap: anywhere; /* Quebra em qualquer lugar para não vazar */
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+    /* Ajuste para Blocos de Código (pre) */
+    .post-content pre {
+        white-space: pre-wrap;      /* Faz o código pular de linha no mobile */
+        word-break: break-all;      /* Garante que comandos longos quebrem */
+        max-width: 100%;
+        overflow-x: visible;        /* Remove o scroll lateral, já que o texto vai pular de linha */
+    }
+
+    /* Ajuste para Tabelas */
+    .post-content table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;           /* Tabelas ainda precisam de scroll lateral próprio */
+        -webkit-overflow-scrolling: touch;
     }
 }
