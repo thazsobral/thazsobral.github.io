@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/styles/style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Thalles Sobral | Post</title>
+    
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
-<body>
+<body class="post-page">
     <header>
         <div id="perfil">
-            <h1 id="name"><a href="index.html" style="color: inherit; text-decoration: none;">← Voltar</a></h1>
+            <h1 id="name">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.5rem;">←</span> Voltar
+                </a>
+            </h1>
         </div>
     </header>
 
     <main>
-        <article id="gist-content" class="card" style="margin-top: 40px; line-height: 1.8;">
-            <p>Carregando conteúdo...</p>
+        <article id="gist-content" class="card post-content">
+            <div id="loading">Carregando conteúdo do Gist...</div>
         </article>
     </main>
 
+    <footer>
+        <div id="reserved-rights">
+            <p>© 2026 Thalles Sobral. Conteúdo via GitHub Gists.</p>
+        </div>
+    </footer>
+
     <script>
-        // 1. Pegar o ID do Gist pela URL (ex: post.html?id=123)
         const urlParams = new URLSearchParams(window.location.search);
         const gistId = urlParams.get('id');
 
@@ -29,17 +41,28 @@
             fetch(`https://api.github.com/gists/${gistId}`)
                 .then(response => response.json())
                 .then(data => {
-                    // 2. Pegar o conteúdo do primeiro arquivo do Gist
                     const files = Object.values(data.files);
-                    const content = files[0].content;
+                    // Procuramos pelo primeiro arquivo markdown ou o primeiro arquivo disponível
+                    const mdFile = files.find(f => f.language === 'Markdown') || files[0];
+                    const content = mdFile.content;
                     
-                    // 3. Renderizar Markdown para HTML
-                    document.getElementById('gist-content').innerHTML = marked.parse(content);
-                    document.title = files[0].filename + " | Thalles Sobral";
+                    // Renderiza o Markdown dentro da div
+                    const container = document.getElementById('gist-content');
+                    container.innerHTML = marked.parse(content);
+                    
+                    // Atualiza o título da aba com o nome do arquivo
+                    document.title = `${mdFile.filename} | Thalles Sobral`;
                 })
                 .catch(err => {
-                    document.getElementById('gist-content').innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
+                    document.getElementById('gist-content').innerHTML = `
+                        <h2>Erro ao carregar</h2>
+                        <p>Não foi possível buscar o conteúdo. Verifique sua conexão ou o ID do Gist.</p>
+                        <a href="index.html">Voltar para a home</a>
+                    `;
+                    console.error(err);
                 });
+        } else {
+            window.location.href = 'index.html';
         }
     </script>
 </body>
