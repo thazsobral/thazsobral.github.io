@@ -132,6 +132,40 @@ header {
 
 #nav-list a:hover { color: var(--accent); }
 
+/* Estilos para o conteúdo Markdown renderizado */
+#gist-content h1, #gist-content h2 {
+    border-bottom: 1px solid var(--bg-tertiary);
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+#gist-content p {
+    padding: 0.75rem;
+}
+
+#gist-content code {
+    background-color: var(--bg-tertiary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+#gist-content pre {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+}
+
+#gist-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+/**/
+
 /* 6. LAYOUT PRINCIPAL (Centralizado e Fluido) */
 main {
     display: flex;
