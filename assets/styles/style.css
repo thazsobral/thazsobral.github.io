@@ -133,38 +133,103 @@ header {
 #nav-list a:hover { color: var(--accent); }
 
 /* Estilos para o conteúdo Markdown renderizado */
+
+/* Contêiner do Post */
+.post-content {
+    padding: 2rem 5%; /* Padding flexível */
+    line-height: 1.8;
+    max-width: 900px; /* Mantém centralizado no desktop */
+    margin: 0 auto;
+}
+
+/* Aplica regras em todos os níveis de título dentro do post */
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4, 
+.post-content h5, 
+.post-content h6 {
+    /* Força a quebra de palavra, inclusive no meio dela se necessário,
+       para que o título não empurre o layout para o lado */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    
+    /* Garante que o título nunca seja maior que o contêiner parent */
+    max-width: 100%;
+    
+    /* Dá um respiro entre os títulos e o conteúdo */
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    
+    /* Ajuste de tamanho para títulos grandes em mobile (opcional) */
+    font-size: calc(1.3rem + 1vw); 
+}
+
+.post-content code {
+    font-family: 'Courier New', Courier, monospace;
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Responsividade de Mídia e Código */
+.post-content pre {
+    background-color: var(--bg-dark);
+    color: var(--bg-dark);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    overflow-x: auto; /* Scroll apenas no bloco de código */
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    max-width: 100%; /* Importante para não vazar */
+}
+
+.post-content blockquote {
+    border-left: 5px solid var(--accent);
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    background: var(--bg-primary);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Tabelas responsivas no post */
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    display: block;
+    overflow-x: auto; /* Permite scroll em tabelas largas no mobile */
+}
+
+.post-content th, .post-content td {
+    border: 1px solid var(--bg-tertiary);
+    padding: 10px;
+    text-align: left;
+}
+
+/* Responsividade de elementos dentro do Markdown */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+/* Garante que o parágrafo também quebre */
+.post-content p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
 #gist-content h1, #gist-content h2 {
     border-bottom: 1px solid var(--bg-tertiary);
     padding-bottom: 0.5rem;
     margin-top: 1.5rem;
 }
-
-#gist-content p {
-    padding: 0.75rem;
-}
-
-#gist-content code {
-    background-color: var(--bg-tertiary);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-family: monospace;
-}
-
-#gist-content pre {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    overflow-x: auto;
-}
-
-#gist-content blockquote {
-    border-left: 4px solid var(--accent);
-    padding-left: 1rem;
-    color: var(--text-muted);
-    font-style: italic;
-}
-/**/
 
 /* 6. LAYOUT PRINCIPAL (Centralizado e Fluido) */
 main {
@@ -268,4 +333,26 @@ footer {
     }
     
     #nav-list a { font-size: 1.5rem; }
+
+    .post-content {
+        padding: 1.5rem 1rem; /* Reduz padding lateral no mobile */
+        border-radius: 0;
+        border: none;
+        max-width: 100%;
+    }
+    
+    .post-page main {
+        margin-top: 80px; /* Header menor no mobile */
+        padding: 0; /* Remove margens laterais para o texto brilhar */
+    } /**/
+
+    /* Reduz levemente o tamanho da fonte geral no mobile para caber mais */
+    .post-content p, .post-content li {
+        font-size: 0.95rem;
+    }
+
+    /* Reduz drasticamente o h1 se for muito longo */
+    .post-content h1 {
+        font-size: 1.6rem;
+    }
 }
