@@ -293,6 +293,26 @@ article {
 
 .negative h2 { color: var(--accent); }
 
+/* Estilos para as tags dos repositórios */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: lowercase;
+}
+
+.tag-language { background-color: var(--bg-repo-language); color: var(--text-repo-language); }
+
+.tag-topic { background-color: var(--bg-repo-topic); color: var(--text-repo-topic); }
+
 /* 8. FOOTER */
 footer {
     padding: 3rem 5%;
