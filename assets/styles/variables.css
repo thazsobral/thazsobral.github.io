@@ -9,11 +9,15 @@
     --bg-secondary: #ffffff;  /* Fundo dos cards e header */
     --bg-tertiary: #e2e8f0;   /* Bordas e divisores */
     --bg-dark: #1c1c1c;       /* Fundo da Bio (Modo Negativo) */
+    --bg-repo-language: #10b981; /* Fundo da tag de linguagem */
+    --bg-repo-topic: #64748b; /* Fundo da tag de tópico */
 
     /* --- Cores de Texto --- */
     --text-main: #0f172a;     /* Títulos e textos principais */
     --text-muted: #64748b;    /* Descrições e textos secundários */
     --text-on-dark: #f1f5f9;  /* Texto dentro da Bio escura */
+    --text-repo-language: #f1f5f9; /* Texto da tag de linguagem */
+    --text-repo-topic: #f1f5f9; /* Texto da tag de tópico */
 
     /* --- Tokens de Espaçamento e Bordas --- */
     --radius-md: 8px;         /* Arredondamento dos cards e botões */
