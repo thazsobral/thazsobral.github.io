@@ -40,6 +40,32 @@ function setPortifolio(repos) {
         card.appendChild(description);
       }
 
+      // Container para as tags
+      let tagsContainer = document.createElement("div");
+      tagsContainer.className = "tags-container";
+
+      // Tag de Linguagem (Language)
+      if (repo.language) {
+        let langTag = document.createElement("span");
+        langTag.className = "tag tag-language";
+        langTag.innerText = repo.language;
+        langTag.title = "linguagem predominante do projeto";
+        tagsContainer.appendChild(langTag);
+      }
+
+      // Tags de Tópicos (Topics)
+      if (repo.topics && repo.topics.length > 0) {
+        repo.topics.forEach(topic => {
+          let topicTag = document.createElement("span");
+          topicTag.className = "tag tag-topic";
+          topicTag.innerText = "#"+topic;
+          topicTag.title = "tópico relacionado ao projeto";
+          tagsContainer.appendChild(topicTag);
+        });
+      }
+
+      card.appendChild(tagsContainer);
+
       writeSpace.appendChild(card);
     }
   })
