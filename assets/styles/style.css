@@ -71,7 +71,7 @@ header {
     display: none; /* Escondido no Desktop */
     width: 45px;
     height: 45px;
-    background-color: #ffffff; /* Fundo branco para visibilidade sobre a bio */
+    background-color: var(--bg-secondary);
     border: 2px solid var(--accent);
     border-radius: 8px;
     cursor: pointer;
@@ -88,7 +88,7 @@ header {
     display: block;
     width: 22px;
     height: 2px;
-    background: #000000; /* Linhas pretas para contrastar com o botão branco */
+    background: var(--text-main);
     position: relative;
     transition: background 0.2s;
 }
@@ -100,7 +100,7 @@ header {
     left: 0;
     width: 100%;
     height: 2px;
-    background: #000000;
+    background: var(--text-main);
     transition: transform 0.3s, top 0.3s;
 }
 
@@ -131,6 +131,30 @@ header {
 }
 
 #nav-list a:hover { color: var(--accent); }
+
+/* Estilos para o Theme Switcher */
+.theme-switcher {
+    display: flex;
+    gap: 8px; /* Espaçamento entre os botões */
+    align-items: center;
+    margin-left: 1.5rem; /* Margem para separar da navegação */
+}
+
+.theme-switcher button {
+    background-color: var(--bg-primary); /* Cor de fundo do botão */
+    color: var(--text-main); /* Cor do texto/ícone */
+    border: 1px solid var(--bg-tertiary); /* Borda sutil */
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-switcher button:hover {
+    background-color: var(--bg-tertiary);
+    transform: translateY(-2px); /* Pequena animação ao passar o mouse */
+}
 
 /* Estilos para o conteúdo Markdown renderizado */
 
@@ -320,6 +344,14 @@ footer {
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--bg-tertiary);
     margin-top: auto;
+}
+
+/* Ajustes para o theme-switcher no mobile */
+@media (max-width: 768px) {
+    .theme-switcher {
+        margin-left: 0;
+        margin-top: 1rem; /* Espaço acima quando empilhado */
+    }
 }
 
 /* 9. MEDIA QUERIES (Mobile) */
