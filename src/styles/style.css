@@ -1,0 +1,651 @@
+/* 1. IMPORTAÇÕES */
+@import url("./index.css");
+@import url("./variables.css");
+
+/* 2. TIPOGRAFIA E BASE */
+h1, h2 {
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+
+/* Remove bullets de todas as listas globalmente */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Divisores */
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--bg-tertiary);
+    margin: 2rem 0;
+    width: 100%;
+}
+
+/* 3. HEADER FIXO (Desktop) */
+header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--bg-tertiary);
+    
+    /* Fixa o menu no topo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#header-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2rem;
+}
+
+#header-image img {
+    max-width: 120px;
+    transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] #header-image img {
+    filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) #header-image img {
+        filter: invert(1);
+    }
+}
+
+#perfil {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#name {
+    font-size: 2rem;
+    margin: 0;
+}
+
+#name a {
+    color: var(--text-main);
+}
+
+#status-text {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+    min-height: 1.3rem;
+}
+
+/* 4. BOTÃO HAMBÚRGUER (Com fundo branco/tema para contraste) */
+#menu-toggle {
+    display: none; /* Escondido no Desktop */
+    width: 45px;
+    height: 45px;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#menu-toggle .hamburger {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-main);
+    position: relative;
+    transition: background 0.2s;
+}
+
+#menu-toggle .hamburger::before,
+#menu-toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-main);
+    transition: transform 0.3s, top 0.3s;
+}
+
+#menu-toggle .hamburger::before { top: -7px; }
+#menu-toggle .hamburger::after { top: 7px; }
+
+/* Animação para "X" quando aberto */
+.menu-open #menu-toggle .hamburger { background: transparent; }
+.menu-open #menu-toggle .hamburger::before { top: 0; transform: rotate(45deg); }
+.menu-open #menu-toggle .hamburger::after { top: 0; transform: rotate(-45deg); }
+
+/* 5. NAVEGAÇÃO */
+#nav-container {
+    flex: 1;
+}
+
+#nav-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+#nav-list a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+#nav-list a:hover { color: var(--accent); }
+
+/* Contêiner de Ações do Header (Idiomas + Tema) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: 1.5rem;
+}
+
+/* Estilos para os Seletores (Dropdowns) */
+.select-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.app-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    border: 1px solid var(--bg-tertiary);
+    padding: 8px 30px 8px 12px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: inherit;
+    line-height: 1.4;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    background-size: 14px 14px;
+}
+
+[data-theme="dark"] .app-select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .app-select {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    }
+}
+
+.app-select:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.app-select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+.app-select option {
+    background-color: var(--bg-secondary);
+    color: var(--text-main);
+    padding: 8px;
+}
+
+/* Estilos para o conteúdo Markdown renderizado */
+
+/* Contêiner do Post */
+.post-content {
+    padding: 2rem 5%; /* Padding flexível */
+    line-height: 1.8;
+    max-width: 900px; /* Mantém centralizado no desktop */
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Aplica regras em todos os níveis de título dentro do post */
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4, 
+.post-content h5, 
+.post-content h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    max-width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: calc(1.3rem + 1vw); 
+}
+
+.post-content h1, .post-content h2, .post-content p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+.post-content code {
+    font-family: 'Courier New', Courier, monospace;
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Responsividade de Mídia e Código */
+.post-content pre {
+    background-color: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    overflow-x: auto; 
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    max-width: 100%;
+    display: block;
+    margin: 1.25rem 0;
+}
+
+.post-content pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+.post-content blockquote {
+    border-left: 5px solid var(--accent);
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    background: var(--bg-primary);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Tabelas responsivas no post */
+.post-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.post-content th, .post-content td {
+    border: 1px solid var(--bg-tertiary);
+    padding: 10px;
+    text-align: left;
+}
+
+/* Responsividade de elementos dentro do Markdown */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+.post-content p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+#gist-content h1, #gist-content h2 {
+    border-bottom: 1px solid var(--bg-tertiary);
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+/* 6. LAYOUT PRINCIPAL (Centralizado e Fluido) */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-section);
+    max-width: 1200px;
+    margin: 140px auto 2rem; /* Margin-top compensa o header fixo */
+    padding: 0 5%;
+    width: 100%;
+    flex: 1;
+}
+
+article { 
+    width: 100%; 
+    max-width: 900px; /* Largura ideal para leitura e centralização */
+}
+
+/* 7. COMPONENTES (Cards e Bio) */
+.card {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--bg-tertiary);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.card h2 a {
+    text-decoration: none;
+    color: var(--text-main);
+    transition: color 0.2s;
+}
+
+.card h2 a:hover {
+    color: var(--accent);
+}
+
+/* Bio sem sobra/sombra indesejada */
+.negative {
+    background-color: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    line-height: 1.7;
+    box-shadow: none; 
+    margin-bottom: 2rem;
+}
+
+.negative h2 { color: var(--accent); }
+
+.negative p {
+    white-space: pre-line;
+    color: var(--text-on-dark);
+}
+
+/* Estilos para as tags dos repositórios */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: lowercase;
+}
+
+.tag-language { background-color: var(--bg-repo-language); color: var(--text-repo-language); }
+
+.tag-topic { background-color: var(--bg-repo-topic); color: var(--text-repo-topic); }
+
+/* Estilos para a seção de Organizações */
+.org-card-content {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.org-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--bg-tertiary);
+    object-fit: cover;
+    flex-shrink: 0;
+    background-color: var(--bg-primary);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover .org-avatar {
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+
+.org-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.org-info h2 {
+    margin-bottom: 0.25rem;
+}
+
+@media (max-width: 600px) {
+    .org-card-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+/* 8. FOOTER */
+footer {
+    padding: 3rem 5%;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--bg-tertiary);
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.github-card-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* GitHub Card customizado fiel ao original */
+.gh-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.gh-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.gh-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.gh-card-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+}
+
+.gh-card-info h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text-main);
+}
+
+.gh-card-info a {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.gh-card-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--bg-tertiary);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.gh-card-stats strong {
+    color: var(--text-main);
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.sponsor-container {
+    display: flex;
+    justify-content: center;
+}
+
+#reserved-rights {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Loading e feedback */
+.loading-state {
+    padding: 2rem 0;
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+}
+
+/* Ajustes para ações do header no mobile */
+@media (max-width: 768px) {
+    .header-actions {
+        margin-left: 0;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .theme-switcher, .language-switcher {
+        margin-left: 0;
+    }
+}
+
+/* 9. MEDIA QUERIES (Mobile) */
+@media (max-width: 768px) {
+    header {
+        position: relative; /* Menu não precisa ser fixo no mobile para poupar espaço */
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    main { 
+        margin-top: 2rem; 
+    }
+
+    #header-image { display: none; }
+    #perfil { align-items: center; }
+
+    #menu-toggle { display: flex; } /* Ativa o botão hambúrguer */
+
+    /* Painel Lateral do Menu Mobile */
+    #nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: var(--bg-secondary);
+        z-index: 1500;
+        transition: 0.4s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    }
+
+    .menu-open #nav-container { right: 0; }
+
+    #nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    #nav-list a { font-size: 1.5rem; }
+
+    .post-content {
+        padding: 1.5rem 1rem;
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    .post-page main {
+        margin-top: 80px;
+        padding: 0;
+    }
+
+    .post-content p, .post-content li {
+        font-size: 0.95rem;
+    }
+
+    .post-content h1, 
+    .post-content h2, 
+    .post-content p {
+        overflow-wrap: anywhere;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+    .post-content pre {
+        white-space: pre-wrap;
+        word-break: break-all;
+        max-width: 100%;
+        overflow-x: visible;
+    }
+
+    .post-content table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
